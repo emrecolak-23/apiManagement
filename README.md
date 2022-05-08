@@ -1,5 +1,28 @@
 # Api Key Management App
 
+## Installation
+
+Clone project
+
+`git clone https://github.com/171-Logo-Siber-FullStack-Bootcamp/week3-assignment-emrecolak-23.git`
+
+## Usage
+
+After clone, you can open project with visiual studio code.
+
+For Client
+`cd client
+ npm install
+ npm run server
+`
+
+For Backend
+`
+cd server
+npm instal
+npm run dev
+`
+
 # Backend Node.js
 
 In this project, I use node.js for backend. I select using MVC design pattern and this include application data model and controllers. Also programming done according to ecma script 6 standards so i benefit from babal packages to transform node.js into ecma6 
