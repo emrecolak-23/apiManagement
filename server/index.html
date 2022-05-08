@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Client</title>
+</head>
+<body>
+  <div class="offset-3 col-md-6 mb-3 mt-5">
+    <p>Uygulamayı kullanmak için ip anahtarına ihtiyacınız var</p>
+    <div id="alertSection">
+    </div>
+    <label for="apiKeyInput" class="form-label">Ip Anahtarı</label>
+    <input type="email" class="form-control" id="apiKeyInput">
+  </div>
+  <div class="offset-3 col-md-6">
+    <button class="btn btn-success" id="getApiKeyButton">Api Anahtarı İçin Tıkla</button>
+  </div>
+
+  <script>
+    
+    const button = document.getElementById('getApiKeyButton')
+    const input = document.getElementById('apiKeyInput') 
+    const alertWrapper = document.getElementById('alertSection')   
+    button.addEventListener('click', ()=>{
+      fetchData()
+    })
+
+    async function fetchData() {
+      const response = await fetch('http://localhost:3000/api-service/test-api2/76963353')
+      const data = await response.json()
+      console.log(data)
+      if (data.message) {
+        const alertDiv = document.createElement('div')
+        alertDiv.classList.add('alert','alert-danger')
+        alertDiv.textContent = data.message
+        alertWrapper.append(alertDiv)
+        input.value = ""
+      }
+      input.value = data.apiKey
+    }
+ 
+  </script>
+
+</body>
+</html>
